@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reflectância Mineral</title>
+  <title>Reflectância e Espectrometria Mineral</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,7 +13,7 @@
     }
 
     body {
-      background-color: #0f172a;
+      background-color: #0b1120;
       color: #e2e8f0;
       display: flex;
       height: 100vh;
@@ -22,34 +22,40 @@
 
     /* Barra Lateral */
     aside {
-      width: 280px;
-      background-color: #1e293b;
-      border-right: 1px solid #334155;
+      width: 320px;
+      background-color: #131d31;
+      border-right: 1px solid #24324f;
       padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
+      overflow-y: auto;
     }
 
     aside h2 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #38bdf8;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .select-group label {
-      display: block;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
       font-size: 0.85rem;
       color: #94a3b8;
-      margin-bottom: 6px;
+      font-weight: 500;
     }
 
     select {
       width: 100%;
-      padding: 10px;
-      background-color: #0f172a;
-      border: 1px solid #475569;
+      padding: 10px 12px;
+      background-color: #0b1120;
+      border: 1px solid #334155;
       color: #f8fafc;
       border-radius: 6px;
       font-size: 0.95rem;
@@ -58,6 +64,17 @@
 
     select:focus {
       outline: 2px solid #38bdf8;
+      border-color: transparent;
+    }
+
+    .info-box {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.4;
+      background: #0f172a;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #1e293b;
     }
 
     /* Painel Central */
@@ -71,8 +88,8 @@
     }
 
     .card {
-      background-color: #1e293b;
-      border: 1px solid #334155;
+      background-color: #131d31;
+      border: 1px solid #24324f;
       border-radius: 8px;
       padding: 24px;
     }
@@ -81,9 +98,11 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      border-bottom: 1px solid #334155;
+      border-bottom: 1px solid #24324f;
       padding-bottom: 16px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .display-header h1 {
@@ -91,49 +110,66 @@
       color: #f8fafc;
     }
 
-    .highlight-box {
-      display: flex;
-      align-items: center;
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-      background: #0f172a;
+      margin-bottom: 24px;
+    }
+
+    .highlight-card {
+      background: #0b1120;
       padding: 16px;
       border-radius: 6px;
       border-left: 4px solid #38bdf8;
-      margin-bottom: 20px;
     }
 
     .highlight-value {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: bold;
       color: #38bdf8;
     }
 
     .highlight-label {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #94a3b8;
+      margin-top: 4px;
     }
 
-    /* Tabela de Dados */
+    /* Tabelas */
+    .section-title {
+      font-size: 1.1rem;
+      color: #f8fafc;
+      margin: 20px 0 12px 0;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
     }
 
     th, td {
-      padding: 12px 16px;
-      border-bottom: 1px solid #334155;
+      padding: 10px 14px;
+      border-bottom: 1px solid #24324f;
     }
 
     th {
       color: #94a3b8;
       font-weight: 600;
-      background-color: #1e293b;
+      background-color: #0f172a;
     }
 
     tr:hover td {
-      background-color: #243248;
+      background-color: #1a2744;
+    }
+
+    .highlight-row td {
+      background-color: #1e3a5f !important;
+      color: #f8fafc;
+      font-weight: 600;
     }
 
     .badge {
@@ -144,154 +180,400 @@
       font-weight: 600;
     }
 
-    .badge-high { background: #064e3b; color: #6ee7b7; }
-    .badge-mid { background: #78350f; color: #fde047; }
-    .badge-low { background: #312e81; color: #a5b4fc; }
+    .badge-metalico { background: #164e63; color: #67e8f9; }
+    .badge-sulfeto { background: #78350f; color: #fde047; }
+    .badge-oxido { background: #4c1d95; color: #c4b5fd; }
+    .badge-silicato { background: #1e293b; color: #94a3b8; }
   </style>
 </head>
 <body>
 
+  <!-- Barra Lateral -->
   <aside>
-    <h2>Filtro de Amostra</h2>
-    <div class="select-group">
-      <label for="mineralSelect">Selecione o Mineral:</label>
-      <select id="mineralSelect" onchange="atualizarPainel()">
-        <option value="ouro">Ouro Nativo (Au)</option>
-        <option value="pirita">Pirita (FeS₂)</option>
-        <option value="calcopirita">Calcopirita (CuFeS₂)</option>
-        <option value="galena">Galena (PbS)</option>
-        <option value="magnetita">Magnetita (Fe₃O₄)</option>
-        <option value="ilmenita">Ilmenita (FeTiO₃)</option>
-        <option value="hematita">Hematita (Fe₂O₃)</option>
-        <option value="muscovita">Muscovita / Silicatos</option>
+    <h2>Controle e Filtros</h2>
+
+    <div class="form-group">
+      <label for="mineralSelect">Espécie Mineral:</label>
+      <select id="mineralSelect" onchange="atualizarInterface()">
+        <!-- Gerado via JavaScript -->
       </select>
+    </div>
+
+    <div class="form-group">
+      <label for="waveSelect">Comprimento de Onda de Destaque:</label>
+      <select id="waveSelect" onchange="atualizarInterface()">
+        <option value="todos">Mostrar todos (Tabela Espectral)</option>
+        <option value="470">470 nm (Azul)</option>
+        <option value="546" selected>546 nm (Verde - Padrão COM/IMA)</option>
+        <option value="589">589 nm (Amarelo - Luz D)</option>
+        <option value="650">650 nm (Vermelho)</option>
+      </select>
+    </div>
+
+    <div class="info-box">
+      <strong>Padrões de Medição:</strong><br>
+      Os valores de reflectância (R%) representam medições em ar fotométrico calibradas segundo a <em>Commission on Ore Mineralogy (COM/IMA)</em> com padrões de SiC ou WTiC.
     </div>
   </aside>
 
+  <!-- Painel Central -->
   <main>
     <div class="card">
       <div class="display-header">
-        <h1 id="mineralNome">Ouro Nativo (Au)</h1>
-        <span id="mineralFormula" style="color: #94a3b8; font-style: italic;">Au</span>
+        <div>
+          <h1 id="mineralNome">Mineral</h1>
+          <span id="mineralFormula" style="color: #94a3b8; font-style: italic;"></span>
+        </div>
+        <span id="mineralGrupoBadge" class="badge"></span>
       </div>
 
-      <div class="highlight-box">
-        <div class="highlight-value" id="mineralReflectancia">~74%</div>
-        <div class="highlight-label">
-          Taxa Média de Reflectância (R%)<br>
-          <small>Medição em luz verde visível (~546 nm no ar)</small>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="highlight-value" id="dispRefDestaque">--%</div>
+          <div class="highlight-label" id="dispRotuloDestaque">Reflectância (546 nm)</div>
+        </div>
+        <div class="highlight-card" style="border-left-color: #a855f7;">
+          <div class="highlight-value" id="dispCorLuz" style="color: #c084fc; font-size: 1.3rem; padding-top: 8px;">--</div>
+          <div class="highlight-label">Cor Típica sob Luz Refletida</div>
         </div>
       </div>
 
-      <p id="mineralDescricao" style="margin-bottom: 24px; line-height: 1.5; color: #cbd5e1;">
-        Mineral metálico de reflectância extremamente alta. Apresenta cor amarelo-ouro característica e brilho intenso sob luz incidente refletida.
-      </p>
+      <p id="mineralDescricao" style="line-height: 1.6; color: #cbd5e1; margin-bottom: 20px;"></p>
 
-      <h3 style="margin-bottom: 12px; font-size: 1rem; color: #f8fafc;">Tabela Comparativa Geral</h3>
+      <!-- Tabela Espectral do Mineral Escolhido -->
+      <h3 class="section-title">Reflectância Espectral Relativa por Comprimento de Onda (R% no ar)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Comprimento de Onda (&lambda;)</th>
+            <th>Região do Espectro</th>
+            <th>Reflectância (R%)</th>
+            <th>Comportamento Espectral</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaEspectral"></tbody>
+      </table>
+
+      <!-- Tabela Comparativa Geral -->
+      <h3 class="section-title">Tabela Comparativa do Banco Mineral</h3>
       <table>
         <thead>
           <tr>
             <th>Mineral</th>
             <th>Fórmula</th>
-            <th>Reflectância (R%)</th>
-            <th>Classe de Brilho</th>
+            <th>Grupo</th>
+            <th>470 nm</th>
+            <th>546 nm (Padrão)</th>
+            <th>589 nm</th>
+            <th>650 nm</th>
           </tr>
         </thead>
-        <tbody id="tabelaGeral">
-          </tbody>
+        <tbody id="tabelaGeral"></tbody>
       </table>
     </div>
   </main>
 
   <script>
-    const minerais = {
-      ouro: {
+    const minerais = [
+      {
+        id: "ouro",
         nome: "Ouro Nativo",
         formula: "Au",
-        ref: "74%",
-        desc: "Reflectância extremamente alta. Não oxida, mantém brilho dourado vívido e isotropia sob microscópio de luz refletida.",
-        classe: "badge-high"
+        grupo: "Elementos Nativos",
+        badgeClasse: "badge-metalico",
+        corLuz: "Amarelo-dourado intenso",
+        desc: "Reflectância extremamente elevada com forte elevação em comprimentos de onda longos (vermelho/amarelo), explicando sua cor dourada saturada. Muito dúctil e isotrópico.",
+        espectro: { "470": 38.5, "546": 64.0, "589": 81.0, "650": 90.0 }
       },
-      pirita: {
+      {
+        id: "prata",
+        nome: "Prata Nativa",
+        formula: "Ag",
+        grupo: "Elementos Nativos",
+        badgeClasse: "badge-metalico",
+        corLuz: "Branco-prata brilhante",
+        desc: "Apresenta a maior reflectância dentre os minerais opacos comuns em praticamente todo o espectro visível. Sensível a embaçamento/oxidação superficial rápida.",
+        espectro: { "470": 94.0, "546": 95.0, "589": 95.5, "650": 96.0 }
+      },
+      {
+        id: "pirita",
         nome: "Pirita",
         formula: "FeS₂",
-        ref: "54%",
-        desc: "Alta reflectância com tonalidade amarelo-clara ('ouro dos tolos'). Bem mais dura e menos reflexiva que o ouro verdadeiro.",
-        classe: "badge-high"
+        grupo: "Sulfetos",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Amarelo-claro esbranquiçado",
+        desc: "Sulfeto muito comum com altíssima reflectância. Elevada dureza de polimento e birreflectância nula (isótropo).",
+        espectro: { "470": 48.0, "546": 54.5, "589": 55.2, "650": 56.0 }
       },
-      calcopirita: {
+      {
+        id: "marcassita",
+        nome: "Marcassita",
+        formula: "FeS₂",
+        grupo: "Sulfetos",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Amarelo-esbranquiçado esverdeado",
+        desc: "Polimorfo ortorrômbico da pirita. Distingue-se da pirita por sua forte anisotropia sob nicóis cruzados e pleocroísmo perceptível.",
+        espectro: { "470": 46.5, "546": 51.5, "589": 52.8, "650": 53.5 }
+      },
+      {
+        id: "calcopirita",
         nome: "Calcopirita",
         formula: "CuFeS₂",
-        ref: "43%",
-        desc: "Reflectância moderada a alta, cor amarelo-latão marcante com ligeiro matiz esverdeado quando comparada à pirita.",
-        classe: "badge-mid"
+        grupo: "Sulfetos",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Amarelo-latão vivo",
+        desc: "Excelente condutor e sulfeto de cobre característico. Reflectância moderada-alta com tom amarelado marcante quando vizinho à pirita.",
+        espectro: { "470": 40.0, "546": 44.5, "589": 45.8, "650": 47.0 }
       },
-      galena: {
+      {
+        id: "galena",
         nome: "Galena",
         formula: "PbS",
-        ref: "43%",
-        desc: "Mineral padrão de alta simetria. Branco brilhante sob luz refletida, clivagem triangular diagnóstica.",
-        classe: "badge-mid"
+        grupo: "Sulfetos",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Branco puro",
+        desc: "Padrão de referência para branco neutro em luz refletida. Isótropa, com clássicas marcas de clivagem triangular de arranquamento no polimento.",
+        espectro: { "470": 44.0, "546": 43.5, "589": 43.0, "650": 42.5 }
       },
-      hematita: {
+      {
+        id: "esfalerita",
+        nome: "Esfalerita",
+        formula: "(Zn,Fe)S",
+        grupo: "Sulfetos",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Cinza-médio a cinza-escuro",
+        desc: "Reflectância relativamente baixa para um sulfeto. Comumente apresenta reflexões internas de cor castanha, avermelhada ou amarela.",
+        espectro: { "470": 17.5, "546": 16.8, "589": 16.5, "650": 16.2 }
+      },
+      {
+        id: "arsenopirita",
+        nome: "Arsenopirita",
+        formula: "FeAsS",
+        grupo: "Sulfetos",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Branco levemente amarelado",
+        desc: "Alta reflectância e forte birreflectância / anisotropia em tons de azul-esverdeado a marrom-avermelhado.",
+        espectro: { "470": 51.0, "546": 52.2, "589": 52.5, "650": 53.0 }
+      },
+      {
+        id: "bornita",
+        nome: "Bornita",
+        formula: "Cu₅FeS₄",
+        grupo: "Sulfetos",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Marrom-rosado a violáceo",
+        desc: "Famosa 'cobre bornita' ou mineral pavão. Sofre rápida oxidação superficial formando filmes iridescentes que reduzem a reflectância ótica.",
+        espectro: { "470": 19.5, "546": 23.0, "589": 27.5, "650": 33.0 }
+      },
+      {
+        id: "covelita",
+        nome: "Covelita",
+        formula: "CuS",
+        grupo: "Sulfetos",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Azul-índigo marcante",
+        desc: "Pleocroísmo de reflexão e birreflectância gigantescos: varia de azul profundo a cinza-azulado no ar, reforçando o contraste nos diferentes comprimentos.",
+        espectro: { "470": 24.0, "546": 12.5, "589": 9.5, "650": 8.0 }
+      },
+      {
+        id: "tetraedrita",
+        nome: "Tetraedrita",
+        formula: "(Cu,Fe)₁₂Sb₄S₁₃",
+        grupo: "Sulfossais",
+        badgeClasse: "badge-sulfeto",
+        corLuz: "Cinza-oliva neutro",
+        desc: "Sulfossal isótropo amplamente associado a depósitos hidrotermais de metais-base e prata.",
+        espectro: { "470": 31.0, "546": 30.5, "589": 30.0, "650": 28.5 }
+      },
+      {
+        id: "hematita",
         nome: "Hematita",
         formula: "Fe₂O₃",
-        ref: "26%",
-        desc: "Reflectância moderada/baixa em microscopia ótica. Cor branca acinzentada com reflexões internas vermelhas típicas.",
-        classe: "badge-mid"
+        grupo: "Óxidos",
+        badgeClasse: "badge-oxido",
+        corLuz: "Branco-acinzentado a azulado",
+        desc: "Óxido comum com birreflectância perceptível e frequentes reflexões internas vermelho-sangue diagnosticáveis.",
+        espectro: { "470": 29.5, "546": 26.5, "589": 25.0, "650": 23.5 }
       },
-      magnetita: {
+      {
+        id: "magnetita",
         nome: "Magnetita",
         formula: "Fe₃O₄",
-        ref: "20%",
-        desc: "Óxido metálico de baixa a média reflectância, tom cinza acastanhado característico sob óleo e ar.",
-        classe: "badge-low"
+        grupo: "Óxidos",
+        badgeClasse: "badge-oxido",
+        corLuz: "Cinza acastanhado",
+        desc: "Óxido isótropo de média reflectância, sem reflexões internas, frequentemente associada à ilmenita e hematita.",
+        espectro: { "470": 21.0, "546": 20.0, "589": 19.5, "650": 19.0 }
       },
-      ilmenita: {
+      {
+        id: "ilmenita",
         nome: "Ilmenita",
         formula: "FeTiO₃",
-        ref: "18%",
-        desc: "Reflectância baixa a moderada, anisotropia visível com pleocroísmo perceptível em tons marrons.",
-        classe: "badge-low"
+        grupo: "Óxidos",
+        badgeClasse: "badge-oxido",
+        corLuz: "Cinza-escuro com tom marrom",
+        desc: "Anisótropa com reflexões internas marrom-escuras raras. Reflectância menor que a magnetita e a hematita.",
+        espectro: { "470": 19.5, "546": 18.2, "589": 17.8, "650": 17.0 }
       },
-      muscovita: {
-        nome: "Muscovita (Silicatos)",
+      {
+        id: "cromita",
+        nome: "Cromita",
+        formula: "FeCr₂O₄",
+        grupo: "Óxidos",
+        badgeClasse: "badge-oxido",
+        corLuz: "Cinza-escuro neutro",
+        desc: "Membro da série dos espinélios, isótropa e de baixa reflectância com reflexões internas castanho-avermelhadas.",
+        espectro: { "470": 13.5, "546": 12.8, "589": 12.4, "650": 12.0 }
+      },
+      {
+        id: "rutilo",
+        nome: "Rutilo",
+        formula: "TiO₂",
+        grupo: "Óxidos",
+        badgeClasse: "badge-oxido",
+        corLuz: "Cinza-azulado claro",
+        desc: "Elevadíssimo índice de refração para um mineral transparente/translúcido, gerando reflectância de até ~20% e reflexões internas muito ricas.",
+        espectro: { "470": 23.0, "546": 20.5, "589": 19.8, "650": 19.0 }
+      },
+      {
+        id: "cassiterita",
+        nome: "Cassiterita",
+        formula: "SnO₂",
+        grupo: "Óxidos",
+        badgeClasse: "badge-oxido",
+        corLuz: "Cinza-acastanhado a neutro",
+        desc: "Principal minério de estanho; possui reflexões internas abundantes e dureza extrema que provoca relevo pronunciado em seções polidas.",
+        espectro: { "470": 12.8, "546": 11.5, "589": 11.0, "650": 10.6 }
+      },
+      {
+        id: "muscovita",
+        nome: "Muscovita",
         formula: "KAl₂(AlSi₃O₁₀)(OH)₂",
-        ref: "< 7%",
-        desc: "Mineral não-metálico transparente a translúcido. Reflectância muito baixa sob luz refletida incidente.",
-        classe: "badge-low"
+        grupo: "Silicatos / Micas",
+        badgeClasse: "badge-silicato",
+        corLuz: "Cinza quase negro (translúcido)",
+        desc: "Filossilicato incolor em transmissão. Em luz refletida no ar, apresenta reflectância inferior a 6% com reflexões difusas e dispersão translúcida.",
+        espectro: { "470": 5.8, "546": 5.2, "589": 5.0, "650": 4.8 }
+      },
+      {
+        id: "biotita",
+        nome: "Biotita",
+        formula: "K(Mg,Fe)₃AlSi₃O₁₀(OH)₂",
+        grupo: "Silicatos / Micas",
+        badgeClasse: "badge-silicato",
+        corLuz: "Cinza-escuro com reflexo vítreo fraco",
+        desc: "Mica escura rica em Fe e Mg. Apresenta ligeira elevação de reflectância em relação à muscovita, mas permanece na faixa de minerais de ganga transparentes.",
+        espectro: { "470": 7.2, "546": 6.8, "589": 6.5, "650": 6.2 }
+      },
+      {
+        id: "quartzo",
+        nome: "Quartzo (Ganga)",
+        formula: "SiO₂",
+        grupo: "Silicatos",
+        badgeClasse: "badge-silicato",
+        corLuz: "Cinza muito escuro / Preto",
+        desc: "Mineral não-metálico de baixíssima reflectância (~4,6%), amplamente utilizado como balizador visual de ganga transparente associada a sulfetos.",
+        espectro: { "470": 4.8, "546": 4.6, "589": 4.5, "650": 4.4 }
       }
+    ];
+
+    const comprimentosInfo = {
+      "470": { nome: "470 nm", cor: "Azul (Espectro Curto)" },
+      "546": { nome: "546 nm", cor: "Verde (Padrão Fotométrico COM)" },
+      "589": { nome: "589 nm", cor: "Amarelo (Linha D do Sódio)" },
+      "650": { nome: "650 nm", cor: "Vermelho (Espectro Longo)" }
     };
 
-    function atualizarPainel() {
+    function popularSelect() {
       const select = document.getElementById("mineralSelect");
-      const item = minerais[select.value];
-
-      document.getElementById("mineralNome").innerText = item.nome;
-      document.getElementById("mineralFormula").innerText = item.formula;
-      document.getElementById("mineralReflectancia").innerText = item.ref;
-      document.getElementById("mineralDescricao").innerText = item.desc;
+      select.innerHTML = "";
+      minerais.forEach(m => {
+        const opt = document.createElement("option");
+        opt.value = m.id;
+        opt.innerText = `${m.nome} (${m.formula})`;
+        select.appendChild(opt);
+      });
     }
 
-    function montarTabela() {
+    function atualizarInterface() {
+      const mineralId = document.getElementById("mineralSelect").value;
+      const waveVal = document.getElementById("waveSelect").value;
+      const m = minerais.find(item => item.id === mineralId);
+
+      // Atualiza cabeçalho e textos
+      document.getElementById("mineralNome").innerText = m.nome;
+      document.getElementById("mineralFormula").innerText = m.formula;
+      document.getElementById("mineralDescricao").innerText = m.desc;
+      document.getElementById("dispCorLuz").innerText = m.corLuz;
+
+      const badgeGrupo = document.getElementById("mineralGrupoBadge");
+      badgeGrupo.className = `badge ${m.badgeClasse}`;
+      badgeGrupo.innerText = m.grupo;
+
+      // Card de destaque
+      const dispValor = document.getElementById("dispRefDestaque");
+      const dispRotulo = document.getElementById("dispRotuloDestaque");
+
+      if (waveVal === "todos") {
+        dispValor.innerText = `${m.espectro["546"]}%`;
+        dispRotulo.innerText = "Reflectância Padrão (546 nm)";
+      } else {
+        dispValor.innerText = `${m.espectro[waveVal]}%`;
+        dispRotulo.innerText = `Reflectância em ${waveVal} nm (${comprimentosInfo[waveVal].cor.split(" ")[0]})`;
+      }
+
+      // Tabela Espectral do Mineral Escolhido
+      const tabelaEsp = document.getElementById("tabelaEspectral");
+      tabelaEsp.innerHTML = "";
+
+      Object.keys(comprimentosInfo).forEach(wl => {
+        const tr = document.createElement("tr");
+        if (waveVal === wl) {
+          tr.className = "highlight-row";
+        }
+        
+        let comportamento = "Estável";
+        if (m.espectro["650"] > m.espectro["470"] + 3) comportamento = "Dispersão Positiva (Aumenta p/ Vermelho)";
+        else if (m.espectro["470"] > m.espectro["650"] + 3) comportamento = "Dispersão Negativa (Aumenta p/ Azul)";
+
+        tr.innerHTML = `
+          <td><strong>${comprimentosInfo[wl].nome}</strong></td>
+          <td>${comprimentosInfo[wl].cor}</td>
+          <td><strong>${m.espectro[wl]}%</strong></td>
+          <td><span style="color: #94a3b8;">${comportamento}</span></td>
+        `;
+        tabelaEsp.appendChild(tr);
+      });
+
+      // Tabela Comparativa Geral
+      montarTabelaGeral(mineralId, waveVal);
+    }
+
+    function montarTabelaGeral(mineralAtivoId, waveAtiva) {
       const corpo = document.getElementById("tabelaGeral");
       corpo.innerHTML = "";
 
-      for (let chave in minerais) {
-        const m = minerais[chave];
+      minerais.forEach(m => {
         const tr = document.createElement("tr");
+        if (m.id === mineralAtivoId) {
+          tr.className = "highlight-row";
+        }
+
         tr.innerHTML = `
           <td><strong>${m.nome}</strong></td>
-          <td>${m.formula}</td>
-          <td><strong>${m.ref}</strong></td>
-          <td><span class="badge ${m.classe}">${m.ref.includes('>') || parseInt(m.ref) > 45 ? 'Muito Alta' : parseInt(m.ref) > 20 ? 'Moderada' : 'Baixa'}</span></td>
+          <td style="font-family: monospace;">${m.formula}</td>
+          <td><span class="badge ${m.badgeClasse}">${m.grupo}</span></td>
+          <td ${waveAtiva === '470' ? 'style="font-weight: bold; color: #38bdf8;"' : ''}>${m.espectro["470"]}%</td>
+          <td ${waveAtiva === '546' || waveAtiva === 'todos' ? 'style="font-weight: bold; color: #38bdf8;"' : ''}>${m.espectro["546"]}%</td>
+          <td ${waveAtiva === '589' ? 'style="font-weight: bold; color: #38bdf8;"' : ''}>${m.espectro["589"]}%</td>
+          <td ${waveAtiva === '650' ? 'style="font-weight: bold; color: #38bdf8;"' : ''}>${m.espectro["650"]}%</td>
         `;
         corpo.appendChild(tr);
-      }
+      });
     }
 
-    // Inicializa tabela
-    montarTabela();
+    popularSelect();
+    atualizarInterface();
   </script>
 </body>
 </html>
