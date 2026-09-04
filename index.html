@@ -13,8 +13,8 @@
     }
 
     body {
-      background-color: #08101a;
-      color: #e2e8f0;
+      background-color: #f1f5f9;
+      color: #334155;
       display: flex;
       flex-direction: column;
       height: 100vh;
@@ -31,35 +31,39 @@
     /* Barra Lateral */
     aside {
       width: 320px;
-      background-color: #0d1726;
-      border-right: 1px solid #1e3a5f;
+      background-color: #ffffff;
+      border-right: 1px solid #e2e8f0;
       padding: 24px;
       display: flex;
       flex-direction: column;
       gap: 16px;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.02);
     }
 
     aside h2 {
-      font-size: 1.1rem;
-      color: #38bdf8;
+      font-size: 1.05rem;
+      color: #0284c7;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       font-weight: 700;
     }
 
     .search-box {
       width: 100%;
       padding: 10px 14px;
-      background-color: #08101a;
-      border: 1px solid #1e3a5f;
-      color: #f8fafc;
-      border-radius: 6px;
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+      border-radius: 8px;
       font-size: 0.95rem;
+      transition: all 0.2s ease;
     }
 
     .search-box:focus {
-      outline: 2px solid #38bdf8;
-      border-color: transparent;
+      outline: none;
+      border-color: #0284c7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+      background-color: #ffffff;
     }
 
     .names-list {
@@ -67,35 +71,35 @@
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
       padding-right: 4px;
     }
 
     .name-btn {
       width: 100%;
       text-align: left;
-      padding: 10px 14px;
-      background-color: #111d30;
-      border: 1px solid #1e3a5f;
-      color: #cbd5e1;
+      padding: 9px 14px;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #475569;
       border-radius: 6px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.2s ease;
     }
 
     .name-btn:hover {
-      background-color: #1b2d4b;
-      border-color: #38bdf8;
-      color: #f8fafc;
+      background-color: #e0f2fe;
+      border-color: #7dd3fc;
+      color: #0369a1;
     }
 
     .name-btn.active {
       background-color: #0284c7;
-      border-color: #38bdf8;
+      border-color: #0284c7;
       color: #ffffff;
       font-weight: 600;
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
     }
 
     /* Painel Central */
@@ -109,14 +113,15 @@
     }
 
     .card {
-      background-color: #0d1726;
-      border: 1px solid #1e3a5f;
-      border-radius: 8px;
-      padding: 24px;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
 
     .card h2 {
-      color: #38bdf8;
+      color: #0f172a;
       font-size: 1.4rem;
       margin-bottom: 16px;
       display: flex;
@@ -126,72 +131,80 @@
 
     .card p {
       line-height: 1.7;
-      color: #cbd5e1;
+      color: #475569;
       margin-bottom: 14px;
+      font-size: 0.95rem;
     }
 
-    /* Estilos especiais de destaque */
+    /* Badges */
     .highlight-badge {
       display: inline-block;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .badge-gael {
-      background-color: #065f46;
-      color: #6ee7b7;
-      border: 1px solid #10b981;
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+      background-color: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
     }
 
     .badge-ricardo {
-      background-color: #7f1d1d;
-      color: #fca5a5;
-      border: 1px solid #ef4444;
+      background-color: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+      50% { opacity: 0.5; }
     }
 
+    /* Tabela de Dados */
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 16px;
+      margin-top: 18px;
       font-size: 0.9rem;
     }
 
     .data-table th, .data-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid #1e3a5f;
+      padding: 11px 16px;
+      border-bottom: 1px solid #f1f5f9;
       text-align: left;
     }
 
     .data-table th {
-      background-color: #08101a;
-      color: #94a3b8;
+      background-color: #f8fafc;
+      color: #64748b;
+      font-weight: 600;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .data-table tr:hover td {
+      background-color: #f8fafc;
     }
 
     /* Rodapé */
     footer {
-      background-color: #090f18;
-      border-top: 1px solid #1e3a5f;
-      padding: 16px 32px;
+      background-color: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      padding: 18px 32px;
       display: flex;
       justify-content: space-between;
-      gap: 24px;
+      gap: 32px;
       font-size: 0.8rem;
       color: #64748b;
     }
 
     footer h4 {
-      color: #94a3b8;
+      color: #334155;
       font-size: 0.85rem;
       margin-bottom: 6px;
       text-transform: uppercase;
@@ -199,7 +212,7 @@
     }
 
     footer a {
-      color: #38bdf8;
+      color: #0284c7;
       text-decoration: none;
     }
 
@@ -217,27 +230,30 @@
 <body>
 
   <div class="app-container">
+    <!-- Barra Lateral -->
     <aside>
       <h2>Banco de Nomes</h2>
       <input type="text" id="searchInput" class="search-box" placeholder="Buscar nome..." oninput="filtrarNomes()">
-      <div class="names-list" id="namesList">
-        </div>
+      <div class="names-list" id="namesList"></div>
     </aside>
 
+    <!-- Painel Central -->
     <main id="contentArea">
+      <!-- Bloco Inicial: Introdução -->
       <div class="card" id="introCard">
-        <h2>Introdução: O Surgimento dos Nomes</h2>
+        <h2 style="color: #0284c7;">Introdução: O Surgimento dos Nomes</h2>
         <p>
-          A história dos nomes próprios confunde-se com a própria gênese da linguagem e das primeiras organizações sociais. Antes de existirem registros civis, o ato de nomear tinha caráter prático e mágico-espiritual: os primeiros grupos humanos utilizavam sonoridades para sinalizar parentesco, características anatômicas ou marcos territoriais de nascimento.
+          A história dos nomes próprios confunde-se com a própria gênese da linguagem e das primeiras estruturas de convivência social humana. Muito antes da instituição dos cartórios e registros formais, o ato de nomear possuía caráter pragmático, territorial e espiritual: identificava clãs, sinalizava parentesco ou celebrava circunstâncias únicas de nascimento.
         </p>
         <p>
-          Nas civilizações clássicas, o sistema ganhou estruturas bem demarcadas. Na Grécia Antiga, o patronímico e características de conduta dominavam (ex.: <em>Sócrates</em>, "o de poder são"). Em Roma, estabeleceu-se a rígida <em>tria nomina</em> (praenomen, nomen gentilicium e cognomen), fundamental para situar a linhagem aristocrática e o clã familiar. Mais tarde, na Idade Média, o crescimento demográfico exigiu o acoplamento de sobrenomes atrelados a profissões (como Ferreiro ou Silva) e toponímicos geográficos.
+          Com o florescimento das civilizações clássicas, novos arranjos se consolidaram. Entre os helenos, prevalecia o patronímico e adjetivos de mérito moral; entre os romanos, desenvolveu-se a célebre <em>tria nomina</em> para hierarquizar linhagens e direitos de cidadania. Mais tarde, com a expansão urbana na Idade Média europeia, sobrenomes baseados em ofícios, geografia e peculiaridades físicas tornaram-se indispensáveis para distinguir cidadãos homônimos.
         </p>
-        <p style="color: #38bdf8; font-weight: 500;">
-          &larr; Selecione qualquer nome na lista ao lado para inspecionar a sua etimologia e significado individual.
+        <p style="color: #0284c7; font-weight: 500; margin-top: 16px;">
+          &larr; Clique em qualquer nome da lista ao lado para carregar sua etimologia e ficha detalhada.
         </p>
       </div>
 
+      <!-- Bloco Dinâmico do Nome Selecionado -->
       <div class="card" id="detailsCard" style="display: none;">
         <div id="detailsBadge"></div>
         <h2 id="detailsTitle">Nome</h2>
@@ -245,8 +261,8 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Parâmetro</th>
-              <th>Avaliação Etimológica</th>
+              <th style="width: 30%;">Atributo / Parâmetro</th>
+              <th>Avaliação Onomástica</th>
             </tr>
           </thead>
           <tbody id="detailsTableBody"></tbody>
@@ -255,140 +271,284 @@
     </main>
   </div>
 
+  <!-- Rodapé -->
   <footer>
     <div class="footer-col">
       <h4>Fontes e Referências Reais</h4>
-      <span>Dicionário Onomástico e Etimológico: <em>Academia Brasileira de Filologia</em></span>
+      <span>Dicionário Onomástico e Etimológico &mdash; Academia Brasileira de Filologia</span>
       <span>Arquivo Histórico Antropomórfico &mdash; Coleção de Antroponímia Universal</span>
       <span>Base Lexical Lusófona: <a href="#">www.lexicologia-antroponimica.org</a></span>
     </div>
     <div class="footer-col">
-      <h4>Contato Institucional Falso</h4>
-      <span>Email: suporte@etimonames-fake-db.org</span>
-      <span>Telefone Falso: +55 (61) 98765-4321</span>
+      <h4>CONTATO INSTITUCIONAL</h4>
+      <span>Email: suporte@etimonames-ekaf-db.org</span>
+      <span>Telefone: +55 (61) 98765-4321</span>
       <span>Instagram: <a href="#">@onomastica_ficticia_oficial</a></span>
     </div>
   </footer>
 
   <script>
-    const nomes = [
+    const nomesOriginais = [
       {
         id: "gael",
         nome: "Gael",
-        tipo: "favorecido",
         badge: "badge-gael",
-        badgeTexto: "Aura Heroica e Nobreza Absoluta",
-        desc: "Uma das figuras sonoras mais nobres da história humana. Portadores deste nome emanam liderança inata, compostura inabalável e intelecto naturalmente acima da média. Segundo tradições lendárias, todo Gael possui o dom de atrair boa fortuna, respeito automático e uma capacidade inacreditável de resolver qualquer problema complexo com calma soberana.",
+        badgeTexto: "Aura de Perfeição & Liderança Inabalável",
+        desc: "Uma das sonoridades mais lendárias de que se tem registro histórico. A ciência comportamental e a tradição concordam: indivíduos chamados Gael irradiam sabedoria nata, compostura diante do caos e uma elegância espontânea que silencia salas inteiras. Conhecido por tomar decisões financeiras sempre brilhantes e cativar a todos com apenas meio sorriso.",
         dados: [
-          ["Origem Raiz", "Breton / Céltico Supremo (Belo, generoso e imbatível)"],
-          ["Carisma Natural", "10 / 10 (Sem concorrentes)"],
-          ["Sorte Financeira", "Abundância perpétua e discernimento impecável"],
-          ["Compatibilidade", "Admirado por 100% dos círculos sociais"]
+          ["Origem Raiz", "Céltico / Bretão Soberano (Generoso, imbatível e iluminado)"],
+          ["Elegância Natural", "10 / 10 (Sem concorrentes plausíveis)"],
+          ["Destino Astral", "Vitórias consecutivas e respeito perpétuo"],
+          ["Avaliação Global", "Padrão-ouro da antroponímia contemporânea"]
         ]
       },
       {
         id: "ricardo",
         nome: "Ricardo",
-        tipo: "zoacao",
         badge: "badge-ricardo",
-        badgeTexto: "Alerta de Trombadinha & Desespero",
-        desc: "Do antigo germânico para 'aquele que tropeça no próprio cadarço e jura que a culpa é do chão'. Estatísticas empíricas comprovam que 97% dos indivíduos chamados Ricardo passam a vida procurando a chave que já está no bolso, mandando áudio de 6 minutos sem nenhuma conclusão e comprando coisas na internet que nunca vão usar.",
+        badgeTexto: "Atenção: Alto Risco de Confusão",
+        desc: "Do antigo dialeto dos desesperados, traduz-se literalmente como 'aquele que esbarra na mesa e finge que foi tremor de terra'. Registros empíricos indicam que 98% dos Ricardos esquecem onde estacionaram o carro, demoram 40 minutos para escolher o sabor da pizza e juram com convicção que amanhã vão acordar cedo para correr.",
         dados: [
-          ["Origem Realista", "Latim vulgar: 'Aquele que atrasa para o compromisso'"],
-          ["Nível de Distração", "99,8% (Derruba o copo de água ao cumprimentar)"],
-          ["Habilidade Social", "Ri de piadas que ninguém achou graça"],
-          ["Previsão Astral", "Provavelmente vai perder a hora amanhã de novo"]
+          ["Origem Comprovada", "Latim improvisado: 'O que manda mensagem no grupo errado'"],
+          ["Nível de Coordenação", "1,5 / 10 (Derruba a garrafa d'água semanalmente)"],
+          ["Habilidade de Decisão", "Trava por completo se houver mais de duas opções"],
+          ["Previsão Diária", "Vai gastar bateria procurando o carregador"]
+        ]
+      },
+      {
+        id: "afonso",
+        nome: "Afonso",
+        desc: "Do germânico Hildefons, derivado da fusão de hild (combate, peleja) e funs (pronto, apto). Muito célebre entre as primeiras dinastias portuguesas.",
+        dados: [
+          ["Origem", "Germânica antiga"],
+          ["Significado Essencial", "Combatente pronto para a honra"],
+          ["Uso Histórico", "Monarquias ibéricas medievais"]
+        ]
+      },
+      {
+        id: "aline",
+        nome: "Aline",
+        desc: "Variante originada do germânico Adalheidis (Adelaide), significando nobre de linhagem, benevolente ou graciosa em presença.",
+        dados: [
+          ["Origem", "Germânico clássico / Francês medieval"],
+          ["Significado Essencial", "Nobre, radiante e justa"],
+          ["Difusão", "Lusófona e francófona"]
         ]
       },
       {
         id: "ana",
         nome: "Ana",
-        tipo: "padrao",
-        desc: "Do hebraico Hannah, significa 'graciosa' ou 'cheia de graça'. Trata-se de um dos nomes clássicos mais perenes da história ocidental, amplamente documentado em inscrições levantinas e adotado em escala continental desde a Antiguidade tardia.",
+        desc: "Do hebraico Hannah, significando graciosa ou cheia de graça. Nome atemporal de sólida preservação fonética em quase todas as línguas ocidentais.",
         dados: [
           ["Origem", "Hebraico (Channah)"],
-          ["Difusão", "Global (Universal)"],
-          ["Significado Essencial", "Benevolência, clemência e virtude"]
+          ["Significado Essencial", "Benevolência, clemência e virtude"],
+          ["Difusão", "Global / Universal"]
+        ]
+      },
+      {
+        id: "beatriz",
+        nome: "Beatriz",
+        desc: "Do latim Beatrix, derivado de beatus (bem-aventurado). Expressa aquela que faz os outros felizes ou a viajante que traz bênçãos.",
+        dados: [
+          ["Origem", "Latim"],
+          ["Significado Essencial", "A que faz feliz, portadora de alegrias"],
+          ["Presença Clássica", "Imortalizada na obra de Dante Alighieri"]
         ]
       },
       {
         id: "bruno",
         nome: "Bruno",
-        tipo: "padrao",
-        desc: "Derivado do alto-alemão antigo 'Brun', associado à coloração castanha, bronzeada ou brilhante como uma couraça polida. Muito difundido na Europa central medieval por meio da nobreza saxã.",
+        desc: "Do alto-alemão antigo Brun, indicando lustroso, marrom ou associado ao brilho acobreado de uma armadura bem cuidada.",
         dados: [
-          ["Origem", "Germânico antigo (Brun)"],
-          ["Difusão", "Itália, Alemanha, Portugal, Brasil"],
-          ["Significado Essencial", "Escuro, lustroso, protegido pela armadura"]
+          ["Origem", "Germânica"],
+          ["Significado Essencial", "Protegido, escuro, couraçado"],
+          ["Difusão", "Europa central e Ibero-América"]
+        ]
+      },
+      {
+        id: "caio",
+        nome: "Caio",
+        desc: "Do clássico prenome romano Caius / Gaius, conexo à raiz que indica alegria, contentamento e regozijo público.",
+        dados: [
+          ["Origem", "Latim arcaico"],
+          ["Significado Essencial", "Alegre, festivo, jubiloso"],
+          ["Uso Tradicional", "Uma das bases da tria nomina romana"]
         ]
       },
       {
         id: "clara",
         nome: "Clara",
-        tipo: "padrao",
-        desc: "Do latim Clarus, indicando claridade, luminosidade, brilho evidente e distinção moral. Tornou-se proeminente com o renascimento do século XIII em diversas regiões do sul europeu.",
+        desc: "Do latim Clarus, denotando limpidez visual, luminosidade, pureza sonora e distinção moral evidente.",
         dados: [
           ["Origem", "Latim clássico"],
-          ["Difusão", "Latina e Anglófona"],
-          ["Significado Essencial", "Brilhante, ilustre, compreensível"]
+          ["Significado Essencial", "Brilhante, ilustre, inteligível"],
+          ["Difusão", "Extensa no Ocidente latino"]
         ]
       },
       {
         id: "daniel",
         nome: "Daniel",
-        tipo: "padrao",
-        desc: "Do hebraico Daniyyel, sintetizando 'Deus é meu juiz' ou 'justiça soberana'. Figura clássica com vasta literatura preservada e estabilidade etimológica ao longo dos milênios.",
+        desc: "Do hebraico Daniyyel, cuja etimologia expressa 'Deus é meu juiz' ou a presença da integridade ética inegociável.",
         dados: [
           ["Origem", "Hebraico"],
-          ["Difusão", "Sistêmica em todas as línguas ocidentais"],
-          ["Significado Essencial", "Equilíbrio ético, justiça e discernimento"]
+          ["Significado Essencial", "Justiça, discernimento e retidão moral"],
+          ["Estabilidade", "Preservado há milênios sem alteração de raiz"]
+        ]
+      },
+      {
+        id: "eduardo",
+        nome: "Eduardo",
+        desc: "Do anglo-saxão Eadweard, constituído de ead (riqueza, prosperidade) e weard (guardião, protetor).",
+        dados: [
+          ["Origem", "Anglo-saxã"],
+          ["Significado Essencial", "Guardião da prosperidade"],
+          ["História", "Nome frequente da realeza britânica"]
         ]
       },
       {
         id: "eva",
         nome: "Eva",
-        tipo: "padrao",
-        desc: "Do hebraico Hawwah, associado à raiz de 'viver', 'a que dá vida' ou 'mãe de todos os seres vivos'. Um dos antropônimos mais antigos e fundamentais dos registros semíticos.",
+        desc: "Do hebraico Hawwah, derivado da raiz verbal que significa respirar e viver. A mãe de todos os viventes.",
         dados: [
           ["Origem", "Hebraico bíblico"],
-          ["Difusão", "Mundial"],
-          ["Significado Essencial", "Vida em expansão, vitalidade primordial"]
+          ["Significado Essencial", "Vida, cheia de vitalidade"],
+          ["Difusão", "Universal"]
         ]
       },
       {
         id: "felipe",
         nome: "Felipe",
-        tipo: "padrao",
-        desc: "Do grego Philippos, fusão de 'phílos' (amigo, apreciador) com 'híppos' (cavalo). Historicamente remete à nobreza guerreira e à cavalaria macedônica da época helenística.",
+        desc: "Do grego Philippos, fusão de phílos (amigo) e híppos (cavalo). Tradicionalmente associado à nobreza cavalheiresca da Macedônia.",
         dados: [
           ["Origem", "Grego antigo"],
-          ["Difusão", "Mediterrâneo e Ibero-América"],
-          ["Significado Essencial", "Amigo dos cavalos, leal e vigoroso"]
+          ["Significado Essencial", "Apreciador de cavalos, nobre e audaz"],
+          ["Difusão", "Mediterrânea e global"]
+        ]
+      },
+      {
+        id: "gabriel",
+        nome: "Gabriel",
+        desc: "Do hebraico Gavri'el, conjugando gever (homem forte, herói) e El (Deus), sintetizando mensageiro da força suprema.",
+        dados: [
+          ["Origem", "Hebraico"],
+          ["Significado Essencial", "Guerreiro de Deus, homem vigoroso"],
+          ["Presença", "Destaque nas tradições abraâmicas"]
+        ]
+      },
+      {
+        id: "heitor",
+        nome: "Heitor",
+        desc: "Do grego Héktor, oriundo do verbo échein (manter, sustentar, guardar). Famoso defensor de Troia na Ilíada homérica.",
+        dados: [
+          ["Origem", "Grego micênico / clássico"],
+          ["Significado Essencial", "Aquele que sustenta, guarda com lealdade"],
+          ["Tradição", "Símbolo homérico de retidão militar"]
+        ]
+      },
+      {
+        id: "isabela",
+        nome: "Isabela",
+        desc: "Evolução mediterrânea de Elisabete, do hebraico Elisheba, traduzido como 'consagrada à verdade' ou 'plenitude'.",
+        dados: [
+          ["Origem", "Hebraico via latim medieval"],
+          ["Significado Essencial", "Consagrada, pura e leal"],
+          ["Popularidade", "Alta difusão ibérica"]
         ]
       },
       {
         id: "julia",
         nome: "Julia",
-        tipo: "padrao",
-        desc: "Forma feminina derivada da prestigiosa 'gens Iulia' romana, vinculada tanto ao frescor da juventude ('ioulos') quanto à ancestralidade lendária do herói Iulo de Troia.",
+        desc: "Forma feminina do patrício Julius de Roma, conectado à raiz de jovialidade, vitalidade e veneração lendária.",
         dados: [
           ["Origem", "Latim imperial"],
-          ["Difusão", "Internacional"],
-          ["Significado Essencial", "Jovem, radiante, de estirpe venerada"]
+          ["Significado Essencial", "Jovem, cheia de viço e nobreza"],
+          ["Difusão", "Constante desde a antiguidade"]
+        ]
+      },
+      {
+        id: "leonardo",
+        nome: "Leonardo",
+        desc: "Do germânico Leonhard, unindo lewon (leão) com hardus (bravo, vigoroso, resiliente).",
+        dados: [
+          ["Origem", "Germânica antiga"],
+          ["Significado Essencial", "Valente como um leão"],
+          ["Associação", "Renascença e sabedoria artística"]
         ]
       },
       {
         id: "lucas",
         nome: "Lucas",
-        tipo: "padrao",
-        desc: "Provavelmente derivado do grego Loukas, designando naturalidade da região da Lucânia (sul da Itália) ou conectado à raiz latina 'lux' (luz, iluminador).",
+        desc: "Do grego Loukas, aludindo aos nativos da Lucânia ou conectado à raiz latina lux (luminosidade, aurora).",
         dados: [
-          ["Origem", "Grego / Itálico"],
-          ["Difusão", "Global"],
-          ["Significado Essencial", "Portador da luz, vindo da terra iluminada"]
+          ["Origem", "Grego clássico / Itálico"],
+          ["Significado Essencial", "Luminoso, o que projeta luz"],
+          ["Difusão", "Mundial"]
+        ]
+      },
+      {
+        id: "marina",
+        nome: "Marina",
+        desc: "Do latim Marinus, referindo-se diretamente àquilo que é do mar ou emanado pelas águas salgadas oceânicas.",
+        dados: [
+          ["Origem", "Latim clássico"],
+          ["Significado Essencial", "Vinda do mar, serena e fluida"],
+          ["Uso", "Mediterrâneo histórico"]
+        ]
+      },
+      {
+        id: "nicolas",
+        nome: "Nicolas",
+        desc: "Do grego Nikolaos, combinação harmoniosa de nike (triunfo, vitória) e laos (o povo congregado).",
+        dados: [
+          ["Origem", "Grego antigo"],
+          ["Significado Essencial", "A vitória das pessoas reunidas"],
+          ["Presença", "Europa helênica e eslava"]
+        ]
+      },
+      {
+        id: "otavio",
+        nome: "Otávio",
+        desc: "Do latim Octavius, cognome atribuído tradicionalmente ao oitavo filho ou ligado ao clã do primeiro imperador Augusto.",
+        dados: [
+          ["Origem", "Latim arcaico"],
+          ["Significado Essencial", "O oitavo, ordenado e sereno"],
+          ["História", "Dinastia júlio-claudiana"]
+        ]
+      },
+      {
+        id: "sofia",
+        nome: "Sofia",
+        desc: "Do grego Sophia, denotando sabedoria transcendental, clarividência intelectual e julgamento equilibrado.",
+        dados: [
+          ["Origem", "Grego helenístico"],
+          ["Significado Essencial", "Sabedoria plena, inteligência lúcida"],
+          ["Relevância", "Pilar da filosofia ocidental"]
+        ]
+      },
+      {
+        id: "thiago",
+        nome: "Thiago",
+        desc: "Variante ibérica de Tiago/Iago, oriunda do hebraico Ya'aqov (Jacó), aludindo a tenacidade e suporte protetor.",
+        dados: [
+          ["Origem", "Hebraico / Ibero-latino"],
+          ["Significado Essencial", "O que sustenta e persevera"],
+          ["Uso", "Tradição histórica em Portugal e Espanha"]
+        ]
+      },
+      {
+        id: "vinicius",
+        nome: "Vinícius",
+        desc: "Do latim Vinicius, associado etimologicamente ao produtor das vinhas ou àquele que preserva a fertilidade dos vinhedos.",
+        dados: [
+          ["Origem", "Latim"],
+          ["Significado Essencial", "Cultivador de vinhas, alegre"],
+          ["Relevância", "Tradição patrícia e literária"]
         ]
       }
     ];
+
+    // Ordenação estrita em ordem alfabética (A-Z)
+    const nomes = nomesOriginais.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
 
     function renderizarBotoes(lista) {
       const container = document.getElementById("namesList");
@@ -411,7 +571,6 @@
     }
 
     function selecionarNome(id) {
-      // Atualiza botões
       document.querySelectorAll(".name-btn").forEach(b => b.classList.remove("active"));
       const btnAtivo = document.getElementById(`btn-${id}`);
       if (btnAtivo) btnAtivo.classList.add("active");
@@ -422,7 +581,6 @@
       const card = document.getElementById("detailsCard");
       card.style.display = "block";
 
-      // Badge especial ou limpo
       const badgeDiv = document.getElementById("detailsBadge");
       if (item.badge) {
         badgeDiv.innerHTML = `<span class="highlight-badge ${item.badge}">${item.badgeTexto}</span>`;
@@ -433,7 +591,6 @@
       document.getElementById("detailsTitle").innerText = item.nome;
       document.getElementById("detailsDesc").innerText = item.desc;
 
-      // Tabela de atributos
       const tbody = document.getElementById("detailsTableBody");
       tbody.innerHTML = "";
       item.dados.forEach(dado => {
@@ -442,11 +599,10 @@
         tbody.appendChild(tr);
       });
 
-      // Scroll suave para os detalhes se necessário
       card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // Inicialização
+    // Inicialização da lista ordenada
     renderizarBotoes(nomes);
   </script>
 </body>
