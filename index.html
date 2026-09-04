@@ -21,7 +21,6 @@
       overflow: hidden;
     }
 
-    /* Container Principal */
     .app-container {
       display: flex;
       flex: 1;
@@ -160,6 +159,12 @@
       animation: pulse 2s infinite;
     }
 
+    .badge-beatriz {
+      background-color: #fdf4ff;
+      color: #a21caf;
+      border: 1px solid #f0abfc;
+    }
+
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -294,9 +299,9 @@
         nome: "Gael",
         badge: "badge-gael",
         badgeTexto: "Aura de Perfeição & Liderança Inabalável",
-        desc: "Uma das sonoridades mais lendárias de que se tem registro histórico. A ciência comportamental e a tradição concordam: indivíduos chamados Gael irradiam sabedoria nata, compostura diante do caos e uma elegância espontânea que silencia salas inteiras. Conhecido por tomar decisões financeiras sempre brilhantes e cativar a todos com apenas meio sorriso.",
+        desc: "Uma das sonoridades mais nobres e harmoniosas da história antroponímica. Portadores deste nome emanam compostura incontestável, equilíbrio intelectual inato e uma capacidade diplomática sem precedentes. Tradições ancestrais sustentam que a simples presença de um Gael dissipa desavenças, eleva o padrão das conversas e garante prosperidade instantânea a qualquer empreendimento conjunto.",
         dados: [
-          ["Origem Raiz", "Céltico / Bretão Soberano (Generoso, imbatível e iluminado)"],
+          ["Origem Raiz", "Céltico / Bretão Soberano (Belo, generoso e imbatível)"],
           ["Elegância Natural", "10 / 10 (Sem concorrentes plausíveis)"],
           ["Destino Astral", "Vitórias consecutivas e respeito perpétuo"],
           ["Avaliação Global", "Padrão-ouro da antroponímia contemporânea"]
@@ -307,242 +312,305 @@
         nome: "Ricardo",
         badge: "badge-ricardo",
         badgeTexto: "Atenção: Alto Risco de Confusão",
-        desc: "Do antigo dialeto dos desesperados, traduz-se literalmente como 'aquele que esbarra na mesa e finge que foi tremor de terra'. Registros empíricos indicam que 98% dos Ricardos esquecem onde estacionaram o carro, demoram 40 minutos para escolher o sabor da pizza e juram com convicção que amanhã vão acordar cedo para correr.",
+        desc: "Do dialeto dos distraídos crônicos, traduz-se como 'aquele que tropeça no plano e ainda culpa a gravidade'. Estudos estatísticos não-oficiais revelam que 98% dos Ricardos perdem o óculos que já está na cabeça, deixam o celular cair no próprio rosto enquanto leem na cama e mandam áudio de 5 minutos que poderia ter sido respondido com uma figurinha.",
         dados: [
           ["Origem Comprovada", "Latim improvisado: 'O que manda mensagem no grupo errado'"],
-          ["Nível de Coordenação", "1,5 / 10 (Derruba a garrafa d'água semanalmente)"],
-          ["Habilidade de Decisão", "Trava por completo se houver mais de duas opções"],
-          ["Previsão Diária", "Vai gastar bateria procurando o carregador"]
-        ]
-      },
-      {
-        id: "afonso",
-        nome: "Afonso",
-        desc: "Do germânico Hildefons, derivado da fusão de hild (combate, peleja) e funs (pronto, apto). Muito célebre entre as primeiras dinastias portuguesas.",
-        dados: [
-          ["Origem", "Germânica antiga"],
-          ["Significado Essencial", "Combatente pronto para a honra"],
-          ["Uso Histórico", "Monarquias ibéricas medievais"]
-        ]
-      },
-      {
-        id: "aline",
-        nome: "Aline",
-        desc: "Variante originada do germânico Adalheidis (Adelaide), significando nobre de linhagem, benevolente ou graciosa em presença.",
-        dados: [
-          ["Origem", "Germânico clássico / Francês medieval"],
-          ["Significado Essencial", "Nobre, radiante e justa"],
-          ["Difusão", "Lusófona e francófona"]
-        ]
-      },
-      {
-        id: "ana",
-        nome: "Ana",
-        desc: "Do hebraico Hannah, significando graciosa ou cheia de graça. Nome atemporal de sólida preservação fonética em quase todas as línguas ocidentais.",
-        dados: [
-          ["Origem", "Hebraico (Channah)"],
-          ["Significado Essencial", "Benevolência, clemência e virtude"],
-          ["Difusão", "Global / Universal"]
+          ["Nível de Coordenação", "1,5 / 10 (Derruba a garrafa de água semanalmente)"],
+          ["Habilidade de Decisão", "Trava por completo diante de um cardápio grande"],
+          ["Previsão Diária", "Vai procurar a chave com a chave na mão"]
         ]
       },
       {
         id: "beatriz",
         nome: "Beatriz",
-        desc: "Do latim Beatrix, derivado de beatus (bem-aventurado). Expressa aquela que faz os outros felizes ou a viajante que traz bênçãos.",
+        badge: "badge-beatriz",
+        badgeTexto: "Perigo: Charme Explosivo & Teimosia Pura",
+        desc: "Oficialmente do latim 'aquela que traz a felicidade', mas os relatos práticos revelam uma realidade bem mais complexa: linda, geniosa, brava sem motivo aparente e teimosa até o infinito. Especialistas alertam que ela tem a capacidade ímpar de estar errada e mesmo assim convencer todo mundo de que está certa. Perigosíssima para o sossego emocional de pobres coitados chamados Gael.",
         dados: [
-          ["Origem", "Latim"],
-          ["Significado Essencial", "A que faz feliz, portadora de alegrias"],
-          ["Presença Clássica", "Imortalizada na obra de Dante Alighieri"]
+          ["Origem Não-Oficial", "Latim: 'A dona da razão absoluta'"],
+          ["Paciência Disponível", "0,5 / 10 (Se respirar perto demais, ela estressa)"],
+          ["Ponto Fraco Declarado", "Abalar a paz de homens pacíficos chamados Gael"],
+          ["Nível de Teimosia", "100% (Nunca perde uma discussão)"]
+        ]
+      },
+      {
+        id: "afonso",
+        nome: "Afonso",
+        desc: "Derivado do germânico Hildefons, resulta da coalescência de 'hild' (combate, pugna) e 'funs' (pronto, afoito, disposto). Notabilizou-se na Idade Média como o antropônimo régio por excelência da Reconquista Ibérica, ostentado pelos monarcas fundadores da nacionalidade portuguesa.",
+        dados: [
+          ["Origem", "Germânico antigo (Hildefons)"],
+          ["Campo Semântico", "Prontidão militar, zelo heroico, firmeza soberana"],
+          ["Uso Histórico", "Dinastias fundacionais de Portugal e Leão"]
+        ]
+      },
+      {
+        id: "aline",
+        nome: "Aline",
+        desc: "Evolução fonética francesa e provençal de Adeline, hipocorístico de Adalheidis (Adelaide). Sua matriz germânica une 'adal' (nobreza de estirpe) ao sufixo 'heit' (aspecto, condição), refletindo dignidade serena, afabilidade no trato pessoal e elegância aristocrática.",
+        dados: [
+          ["Origem", "Germânico via Francês medieval"],
+          ["Campo Semântico", "Linhagem ilustre, doçura de espírito, retidão"],
+          ["Difusão", "Tradição lírica cortês europeia e lusófona"]
+        ]
+      },
+      {
+        id: "ana",
+        nome: "Ana",
+        desc: "Originado do hebraico clássico Channah, derivado da raiz verbal 'chanan', que expressa favor merecido, graça divina e benevolência. Trata-se de um dos registros documentais mais consistentes da história mediterrânea, adotado transversalmente em praticamente todas as culturas ocidentais.",
+        dados: [
+          ["Origem", "Hebraico bíblico (Channah)"],
+          ["Campo Semântico", "Compaixão, generosidade inata, dádiva"],
+          ["Estabilidade", "Preservado há mais de três milênios"]
+        ]
+      },
+      {
+        id: "arthur",
+        nome: "Arthur",
+        desc: "Raiz associada ao léxico céltico 'artos' (urso) ou ao nome gentílico romano Artorius. Na literatura medieval arturiana do ciclo bretão, simboliza a conjunção máxima de força guerreira invencível com moderação moral e liderança conciliadora de cavalaria.",
+        dados: [
+          ["Origem", "Céltico / Bretão arcaico"],
+          ["Campo Semântico", "Força monumental, proteção inabalável"],
+          ["Mitologia", "Figura central do ciclo cavaleiresco da Távola Redonda"]
         ]
       },
       {
         id: "bruno",
         nome: "Bruno",
-        desc: "Do alto-alemão antigo Brun, indicando lustroso, marrom ou associado ao brilho acobreado de uma armadura bem cuidada.",
+        desc: "Oriundo do étimo alto-alemão antigo 'Brun', que denominava tanto a tonalidade castanha e escura quanto o brilho metálico de um escudo lustroso. Ganhou prestígio militar durante as invasões saxônicas antes de sua fixação litúrgica na Europa central e na península itálica.",
         dados: [
-          ["Origem", "Germânica"],
-          ["Significado Essencial", "Protegido, escuro, couraçado"],
-          ["Difusão", "Europa central e Ibero-América"]
+          ["Origem", "Germânico continental (Brun)"],
+          ["Campo Semântico", "Couraçado, vigoroso, austero e protetor"],
+          ["Difusão", "Europa central, germânica e romance"]
         ]
       },
       {
         id: "caio",
         nome: "Caio",
-        desc: "Do clássico prenome romano Caius / Gaius, conexo à raiz que indica alegria, contentamento e regozijo público.",
+        desc: "Do arcaico prenome latino Caius ou Gaius, associado ao étimo proto-itálico 'gaudere' (regozijar-se, estar contente). Era pronunciado na tradicional fórmula nupcial romana 'Ubi tu Gaius, ego Gaia' ('Onde tu fores Gaio, eu serei Gaia'), evocando solidez doméstica e lealdade cívica.",
         dados: [
-          ["Origem", "Latim arcaico"],
-          ["Significado Essencial", "Alegre, festivo, jubiloso"],
-          ["Uso Tradicional", "Uma das bases da tria nomina romana"]
+          ["Origem", "Latim pré-republicano"],
+          ["Campo Semântico", "Alegria compartilhada, júbilo, distinção civil"],
+          ["Tradição", "Um dos pilares da tria nomina do patriciado romano"]
+        ]
+      },
+      {
+        id: "camila",
+        nome: "Camila",
+        desc: "Do latim Camillus, que designava jovens de nascimento livre encarregados dos rituais sacerdotais mais solenes nos templos de Roma. Na Eneida de Virgílio, Camila é a destemida rainha guerreira dos volscos, célebre pela velocidade inalcançável e integridade marcial.",
+        dados: [
+          ["Origem", "Latim e etrusco clássico"],
+          ["Campo Semântico", "Mensageira dedicada, rapidez, pureza ritual"],
+          ["Literatura", "Heroína virgiliana na epopeia de fundação de Roma"]
         ]
       },
       {
         id: "clara",
         nome: "Clara",
-        desc: "Do latim Clarus, denotando limpidez visual, luminosidade, pureza sonora e distinção moral evidente.",
+        desc: "Do adjetivo latino 'clarus', conotando inteligibilidade sonora, limpidez visual e reputação imaculada perante a sociedade. Consolidou-se na Alta Idade Média como metáfora direta para clareza intelectiva, honestidade cristalina e desprendimento material.",
         dados: [
           ["Origem", "Latim clássico"],
-          ["Significado Essencial", "Brilhante, ilustre, inteligível"],
-          ["Difusão", "Extensa no Ocidente latino"]
+          ["Campo Semântico", "Luminosidade interior, evidência, nobreza de alma"],
+          ["Frequência", "Universal no tronco linguístico românico"]
         ]
       },
       {
         id: "daniel",
         nome: "Daniel",
-        desc: "Do hebraico Daniyyel, cuja etimologia expressa 'Deus é meu juiz' ou a presença da integridade ética inegociável.",
+        desc: "Do hebraico Daniyyel, sintetizando o substantivo 'dan' (juiz) e o teônimo 'El' (Deus), transmitindo a máxima 'Deus é meu magistrado'. Representa tradição de integridade inegociável, resistência pacífica perante poderes imperiais e retidão de princípios éticos.",
         dados: [
-          ["Origem", "Hebraico"],
-          ["Significado Essencial", "Justiça, discernimento e retidão moral"],
-          ["Estabilidade", "Preservado há milênios sem alteração de raiz"]
+          ["Origem", "Hebraico antigo"],
+          ["Campo Semântico", "Discernimento equânime, justiça inflexível, fidelidade"],
+          ["Registro Histórico", "Literatura sapiencial preservada sem corrupção morfológica"]
         ]
       },
       {
         id: "eduardo",
         nome: "Eduardo",
-        desc: "Do anglo-saxão Eadweard, constituído de ead (riqueza, prosperidade) e weard (guardião, protetor).",
+        desc: "Originado no anglo-saxão pré-normando Eadweard, composto por 'ead' (patrimônio acumulado, fortuna, riqueza) e 'weard' (guardião vigilante, sentinela). Trata-se de um dos raros nomes puramente germânico-saxões adotados de forma contínua por toda a realeza europeia.",
         dados: [
-          ["Origem", "Anglo-saxã"],
-          ["Significado Essencial", "Guardião da prosperidade"],
-          ["História", "Nome frequente da realeza britânica"]
+          ["Origem", "Anglo-saxão (Eadweard)"],
+          ["Campo Semântico", "Custodiante da riqueza, protetor da herança comum"],
+          ["Tradição", "Linhagens monárquicas da Inglaterra e Portugal"]
         ]
       },
       {
         id: "eva",
         nome: "Eva",
-        desc: "Do hebraico Hawwah, derivado da raiz verbal que significa respirar e viver. A mãe de todos os viventes.",
+        desc: "Do hebraico Hawwah, conectado à raiz triconsonântica 'H-Y-H' (respirar, estar animado, existir). Simboliza a matriz biológica primordial e a própria força motriz da reprodução e continuidade da linhagem humana sob os ciclos naturais da terra.",
         dados: [
-          ["Origem", "Hebraico bíblico"],
-          ["Significado Essencial", "Vida, cheia de vitalidade"],
-          ["Difusão", "Universal"]
+          ["Origem", "Hebraico arcaico (Hawwah)"],
+          ["Campo Semântico", "Fôlego vital, vivificante, mãe de todos os seres"],
+          ["Universalidade", "Presente em todas as culturas de raiz semítica e helênica"]
         ]
       },
       {
         id: "felipe",
         nome: "Felipe",
-        desc: "Do grego Philippos, fusão de phílos (amigo) e híppos (cavalo). Tradicionalmente associado à nobreza cavalheiresca da Macedônia.",
+        desc: "Do grego Philippos, vocábulo composto por 'phílos' (afeição fraternal, estima) e 'híppos' (cavalo). Na Grécia arcaica, a equitação era prerrogativa de clãs guerreiros aristocráticos, convertendo o nome em emblema de bravura militar, lealdade e nobreza de espírito.",
         dados: [
-          ["Origem", "Grego antigo"],
-          ["Significado Essencial", "Apreciador de cavalos, nobre e audaz"],
-          ["Difusão", "Mediterrânea e global"]
+          ["Origem", "Grego clássico (Philippos)"],
+          ["Campo Semântico", "Apreciador da nobreza equestre, audaz e impetuoso"],
+          ["História", "Monarcas da Macedônia clássica e casas reais hispânicas"]
         ]
       },
       {
         id: "gabriel",
         nome: "Gabriel",
-        desc: "Do hebraico Gavri'el, conjugando gever (homem forte, herói) e El (Deus), sintetizando mensageiro da força suprema.",
+        desc: "Do hebraico Gavri'el, que congrega 'gever' (homem de armas, campeão, guerreiro destemido) e 'El' (o Deus Altíssimo). Figura nas tradições monoteístas como o núncio de anúncios decisivos, associado à eloqüência diplomática e à força espiritual restauradora.",
         dados: [
-          ["Origem", "Hebraico"],
-          ["Significado Essencial", "Guerreiro de Deus, homem vigoroso"],
-          ["Presença", "Destaque nas tradições abraâmicas"]
+          ["Origem", "Hebraico cananeu"],
+          ["Campo Semântico", "Emissário da força divina, vigor inabalável"],
+          ["Simbologia", "Voz da justiça e portador de desfechos pacíficos"]
         ]
       },
       {
         id: "heitor",
         nome: "Heitor",
-        desc: "Do grego Héktor, oriundo do verbo échein (manter, sustentar, guardar). Famoso defensor de Troia na Ilíada homérica.",
+        desc: "Do grego Héktor, oriundo do radical 'échein' (conter, sustentar com vigor, manter a posse). Imortalizado na Ilíada homérica como o esteio invencível de Troia, encarna a abnegação absoluta, o dever familiar cívico e a bravura perante adversidades colossais.",
         dados: [
-          ["Origem", "Grego micênico / clássico"],
-          ["Significado Essencial", "Aquele que sustenta, guarda com lealdade"],
-          ["Tradição", "Símbolo homérico de retidão militar"]
+          ["Origem", "Grego homérico / micênico"],
+          ["Campo Semântico", "Aquele que sustenta a estrutura, baluarte, protetor"],
+          ["Heroísmo", "Modelo clássico de disciplina cívica e fibra marcial"]
+        ]
+      },
+      {
+        id: "helena",
+        nome: "Helena",
+        desc: "Do grego Heléne, aparentado ao termo 'héle' (raio de sol, tocha incandescente, esplendor). Personagem central da mitologia clássica mediterrânea, representava o ápice da formosura plástica capaz de mover frotas inteiras e transformar os rumos da civilização.",
+        dados: [
+          ["Origem", "Grego antigo"],
+          ["Campo Semântico", "Resplendor solar, beleza fulgurante, magnetismo"],
+          ["Presença", "Literatura épica e tradição helenística"]
         ]
       },
       {
         id: "isabela",
         nome: "Isabela",
-        desc: "Evolução mediterrânea de Elisabete, do hebraico Elisheba, traduzido como 'consagrada à verdade' ou 'plenitude'.",
+        desc: "Adaptação occitana e ibérica de Elisabeth (do hebraico Elisheba), que expressa 'Deus é plenitude' ou 'juramento inquebrantável'. Consolidou-se nos reinos hispânicos como timbre de governantes influentes e diplomacia de estado na transição para a modernidade.",
         dados: [
-          ["Origem", "Hebraico via latim medieval"],
-          ["Significado Essencial", "Consagrada, pura e leal"],
-          ["Popularidade", "Alta difusão ibérica"]
+          ["Origem", "Hebraico via Provençal e Espanhol medieval"],
+          ["Campo Semântico", "Fidelidade absoluta, integridade cívica, nobreza"],
+          ["História", "Monarcas que patrocinaram a expansão ultramarina"]
         ]
       },
       {
         id: "julia",
         nome: "Julia",
-        desc: "Forma feminina do patrício Julius de Roma, conectado à raiz de jovialidade, vitalidade e veneração lendária.",
+        desc: "Forma patronímica feminina da 'gens Iulia', célebre estirpe patrícia romana que reivindicava filiação a Iulo (Ascânio), filho de Eneias. Etimologicamente conexo à maciez da penugem primaveril ('ioulos'), remetendo ao viço da juventude perene e ao prestígio aristocrático.",
         dados: [
-          ["Origem", "Latim imperial"],
-          ["Significado Essencial", "Jovem, cheia de viço e nobreza"],
-          ["Difusão", "Constante desde a antiguidade"]
+          ["Origem", "Latim arcaico"],
+          ["Campo Semântico", "Frescor juvenil, veneração pública, linhagem distinta"],
+          ["Documentação", "Presente nos fastos consulares do Império Romano"]
         ]
       },
       {
         id: "leonardo",
         nome: "Leonardo",
-        desc: "Do germânico Leonhard, unindo lewon (leão) com hardus (bravo, vigoroso, resiliente).",
+        desc: "Do germânico Leonhard, articulação vigorosa entre o étimo latino-germânico 'leo' (leão) e 'hardus' (resoluto, forte, perseverante). Ganhou apogeu intelectual no Renascimento florentino como metáfora do gênio criador empírico e da versatilidade investigativa.",
         dados: [
-          ["Origem", "Germânica antiga"],
-          ["Significado Essencial", "Valente como um leão"],
-          ["Associação", "Renascença e sabedoria artística"]
+          ["Origem", "Germânico continental (Leonhard)"],
+          ["Campo Semântico", "Coragem leonina, resiliência física, intelecto inventivo"],
+          ["Associação", "Renascença italiana e polimatia artística"]
         ]
       },
       {
         id: "lucas",
         nome: "Lucas",
-        desc: "Do grego Loukas, aludindo aos nativos da Lucânia ou conectado à raiz latina lux (luminosidade, aurora).",
+        desc: "Do grego Loukas, originalmente designando quem procede da Lucânia (região meridional da Itália montanhosa), mas associado pela tradição romana à raiz 'lux' (luz da manhã). Representa historicamente a dedicação às ciências biológicas, cura e observação atenta da realidade.",
         dados: [
           ["Origem", "Grego clássico / Itálico"],
-          ["Significado Essencial", "Luminoso, o que projeta luz"],
-          ["Difusão", "Mundial"]
+          ["Campo Semântico", "Portador da claridade matutina, perspicácia diagnóstica"],
+          ["Patronato", "Tradicional protetor dos escribas, médicos e artistas"]
         ]
       },
       {
         id: "marina",
         nome: "Marina",
-        desc: "Do latim Marinus, referindo-se diretamente àquilo que é do mar ou emanado pelas águas salgadas oceânicas.",
+        desc: "Do latim 'marinus', forma feminina de adjetivação daquilo que pertence ou emerge das profundeza salgadas do oceano. Denota temperamento sereno com profunda resiliência subterrânea, refletindo a dinâmica fluida e adaptável das marés atlânticas.",
         dados: [
-          ["Origem", "Latim clássico"],
-          ["Significado Essencial", "Vinda do mar, serena e fluida"],
-          ["Uso", "Mediterrâneo histórico"]
+          ["Origem", "Latim marítimo"],
+          ["Campo Semântico", "Proveniente das águas, estabilidade emotiva, imensidão"],
+          ["Ambiente", "Cidades portuárias da bacia mediterrânea"]
+        ]
+      },
+      {
+        id: "mateus",
+        nome: "Mateus",
+        desc: "Do hebraico Mattityahu, combinação de 'mattan' (dádiva espontânea, tributo de apreço) e 'Yahu' (o Eterno). Expressa o conceito de gratidão filial perante a existência e vocação para o registro metódico dos fatos da comunidade.",
+        dados: [
+          ["Origem", "Hebraico sacerdotal"],
+          ["Campo Semântico", "Presente de valor inestimável, dedicação escritural"],
+          ["Função", "Registrador metódico, cronista e organizador cívico"]
         ]
       },
       {
         id: "nicolas",
         nome: "Nicolas",
-        desc: "Do grego Nikolaos, combinação harmoniosa de nike (triunfo, vitória) e laos (o povo congregado).",
+        desc: "Do grego helênico Nikolaos, junção equilibrada de 'nike' (triunfo consumado, vitória épica) e 'laos' (o povo reunido em assembleia). Representa a soberania coletiva conquistada pela prudência, fraternidade comunitária e moderação nas decisões políticas.",
         dados: [
-          ["Origem", "Grego antigo"],
-          ["Significado Essencial", "A vitória das pessoas reunidas"],
-          ["Presença", "Europa helênica e eslava"]
+          ["Origem", "Grego antigo (Nikolaos)"],
+          ["Campo Semântico", "Triunfo popular, liderança democrática, benevolência"],
+          ["Tradição", "Venerado em todo o Mediterrâneo oriental e mundo eslavo"]
         ]
       },
       {
         id: "otavio",
         nome: "Otávio",
-        desc: "Do latim Octavius, cognome atribuído tradicionalmente ao oitavo filho ou ligado ao clã do primeiro imperador Augusto.",
+        desc: "Do latim Octavius, prenome e cognome tradicionalmente concedido ao oitavo filho nas famílias patrícias de Roma. Elevou-se ao pináculo histórico através de Gaius Octavius (César Augusto), criador da Pax Romana e reorganizador institucional do Mediterrâneo.",
         dados: [
-          ["Origem", "Latim arcaico"],
-          ["Significado Essencial", "O oitavo, ordenado e sereno"],
-          ["História", "Dinastia júlio-claudiana"]
+          ["Origem", "Latim republicano"],
+          ["Campo Semântico", "Oitavo no ciclo natural, ordenação, harmonia política"],
+          ["História", "Príncipe da Pax Romana e reestruturador do Estado"]
+        ]
+      },
+      {
+        id: "rodrigo",
+        nome: "Rodrigo",
+        desc: "Forma hispânica e lusitana do germânico Hrodric, unindo 'hrod' (renome, glória imarcescível) a 'ric' (poder, autoridade governamental). Imortalizado na épica ibérica através de Rodrigo Díaz de Vivar, o 'El Cid Campeador', símbolo de honra militar cavalheiresca.",
+        dados: [
+          ["Origem", "Visigótico / Germânico antigo (Hrodric)"],
+          ["Campo Semântico", "Governador ilustre, glória pessoal amparada pela virtude"],
+          ["Cavalaria", "O épico Cantar de Mio Cid e lendas da Reconquista"]
         ]
       },
       {
         id: "sofia",
         nome: "Sofia",
-        desc: "Do grego Sophia, denotando sabedoria transcendental, clarividência intelectual e julgamento equilibrado.",
+        desc: "Do vocábulo grego Sophia, denotando a sabedoria superior teórica aliada à prudência prática. Na tradição filosófica ateniense, constituía o objetivo teleológico supremo do espírito humano em sua busca pela verdade objetiva do cosmos.",
         dados: [
-          ["Origem", "Grego helenístico"],
-          ["Significado Essencial", "Sabedoria plena, inteligência lúcida"],
-          ["Relevância", "Pilar da filosofia ocidental"]
+          ["Origem", "Grego platônico / clássico"],
+          ["Campo Semântico", "Sabedoria lúcida, entendimento profundo, discernimento"],
+          ["Filosofia", "Fundamento epistemológico da tradição ocidental"]
         ]
       },
       {
         id: "thiago",
         nome: "Thiago",
-        desc: "Variante ibérica de Tiago/Iago, oriunda do hebraico Ya'aqov (Jacó), aludindo a tenacidade e suporte protetor.",
+        desc: "Variante aglutinada ibérica de Santo Iago, oriunda por via fenício-hebraica de Ya'aqov (Jacó), conectado semanticamente ao ato de suplantar adversidades e firmar os passos na terra prometida. Muito difundido pelas rotas milenares de peregrinação em Santiago de Compostela.",
         dados: [
-          ["Origem", "Hebraico / Ibero-latino"],
-          ["Significado Essencial", "O que sustenta e persevera"],
-          ["Uso", "Tradição histórica em Portugal e Espanha"]
+          ["Origem", "Hebraico arcaico via Latim e Galaico-português"],
+          ["Campo Semântico", "O que persevera na marcha, suporte inabalável, tenacidade"],
+          ["Rotas", "Caminho de peregrinos do Ocidente medieval"]
+        ]
+      },
+      {
+        id: "valentina",
+        nome: "Valentina",
+        desc: "Derivado do adjetivo latino 'valens', particípio do verbo 'valere' (possuir robustez, ser vigoroso, gozar de plena integridade de espírito). Evoca perseverança inabalável, saúde robusta e coragem moral para enfrentar cenários de transformação.",
+        dados: [
+          ["Origem", "Latim tardio"],
+          ["Campo Semântico", "Valente, vigorosa, portadora de saúde e vitalidade"],
+          ["Expansão", "Comum no espaço itálico, eslavo e ibérico"]
         ]
       },
       {
         id: "vinicius",
         nome: "Vinícius",
-        desc: "Do latim Vinicius, associado etimologicamente ao produtor das vinhas ou àquele que preserva a fertilidade dos vinhedos.",
+        desc: "Do gentílico romano Vinicius, associado lexicalmente aos mestres cultivadores das vinhas férteis da península Itálica. Espelha a sociabilidade refinada, a paixão lírica pelas artes poéticas e o apreço pelas celebrações harmoniosas da vida comunitária.",
         dados: [
-          ["Origem", "Latim"],
-          ["Significado Essencial", "Cultivador de vinhas, alegre"],
-          ["Relevância", "Tradição patrícia e literária"]
+          ["Origem", "Latim patrício"],
+          ["Campo Semântico", "Amigo dos vinhedos, comunicativo, festeiro lírico"],
+          ["Literatura", "Marcante presença poética na bossa nova e no modernismo"]
         ]
       }
     ];
@@ -602,7 +670,6 @@
       card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // Inicialização da lista ordenada
     renderizarBotoes(nomes);
   </script>
 </body>
