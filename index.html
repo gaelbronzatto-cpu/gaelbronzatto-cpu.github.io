@@ -2,20 +2,296 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Meu Site de Teste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflectância Mineral</title>
   <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 50px;
-      background-color: #f4f4f9;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
-    h1 { color: #333; }
-    p { color: #666; }
+
+    body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Barra Lateral */
+    aside {
+      width: 280px;
+      background-color: #1e293b;
+      border-right: 1px solid #334155;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    aside h2 {
+      font-size: 1.1rem;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .select-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      background-color: #0f172a;
+      border: 1px solid #475569;
+      color: #f8fafc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    select:focus {
+      outline: 2px solid #38bdf8;
+    }
+
+    /* Painel Central */
+    main {
+      flex: 1;
+      padding: 32px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .display-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+
+    .display-header h1 {
+      font-size: 1.6rem;
+      color: #f8fafc;
+    }
+
+    .highlight-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #0f172a;
+      padding: 16px;
+      border-radius: 6px;
+      border-left: 4px solid #38bdf8;
+      margin-bottom: 20px;
+    }
+
+    .highlight-value {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .highlight-label {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    /* Tabela de Dados */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #334155;
+    }
+
+    th {
+      color: #94a3b8;
+      font-weight: 600;
+      background-color: #1e293b;
+    }
+
+    tr:hover td {
+      background-color: #243248;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-high { background: #064e3b; color: #6ee7b7; }
+    .badge-mid { background: #78350f; color: #fde047; }
+    .badge-low { background: #312e81; color: #a5b4fc; }
   </style>
 </head>
 <body>
-  <h1>Site no ar!</h1>
-  <p>Primeiro teste no GitHub Pages funcionando.</p>
+
+  <aside>
+    <h2>Filtro de Amostra</h2>
+    <div class="select-group">
+      <label for="mineralSelect">Selecione o Mineral:</label>
+      <select id="mineralSelect" onchange="atualizarPainel()">
+        <option value="ouro">Ouro Nativo (Au)</option>
+        <option value="pirita">Pirita (FeS₂)</option>
+        <option value="calcopirita">Calcopirita (CuFeS₂)</option>
+        <option value="galena">Galena (PbS)</option>
+        <option value="magnetita">Magnetita (Fe₃O₄)</option>
+        <option value="ilmenita">Ilmenita (FeTiO₃)</option>
+        <option value="hematita">Hematita (Fe₂O₃)</option>
+        <option value="muscovita">Muscovita / Silicatos</option>
+      </select>
+    </div>
+  </aside>
+
+  <main>
+    <div class="card">
+      <div class="display-header">
+        <h1 id="mineralNome">Ouro Nativo (Au)</h1>
+        <span id="mineralFormula" style="color: #94a3b8; font-style: italic;">Au</span>
+      </div>
+
+      <div class="highlight-box">
+        <div class="highlight-value" id="mineralReflectancia">~74%</div>
+        <div class="highlight-label">
+          Taxa Média de Reflectância (R%)<br>
+          <small>Medição em luz verde visível (~546 nm no ar)</small>
+        </div>
+      </div>
+
+      <p id="mineralDescricao" style="margin-bottom: 24px; line-height: 1.5; color: #cbd5e1;">
+        Mineral metálico de reflectância extremamente alta. Apresenta cor amarelo-ouro característica e brilho intenso sob luz incidente refletida.
+      </p>
+
+      <h3 style="margin-bottom: 12px; font-size: 1rem; color: #f8fafc;">Tabela Comparativa Geral</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Mineral</th>
+            <th>Fórmula</th>
+            <th>Reflectância (R%)</th>
+            <th>Classe de Brilho</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaGeral">
+          </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    const minerais = {
+      ouro: {
+        nome: "Ouro Nativo",
+        formula: "Au",
+        ref: "74%",
+        desc: "Reflectância extremamente alta. Não oxida, mantém brilho dourado vívido e isotropia sob microscópio de luz refletida.",
+        classe: "badge-high"
+      },
+      pirita: {
+        nome: "Pirita",
+        formula: "FeS₂",
+        ref: "54%",
+        desc: "Alta reflectância com tonalidade amarelo-clara ('ouro dos tolos'). Bem mais dura e menos reflexiva que o ouro verdadeiro.",
+        classe: "badge-high"
+      },
+      calcopirita: {
+        nome: "Calcopirita",
+        formula: "CuFeS₂",
+        ref: "43%",
+        desc: "Reflectância moderada a alta, cor amarelo-latão marcante com ligeiro matiz esverdeado quando comparada à pirita.",
+        classe: "badge-mid"
+      },
+      galena: {
+        nome: "Galena",
+        formula: "PbS",
+        ref: "43%",
+        desc: "Mineral padrão de alta simetria. Branco brilhante sob luz refletida, clivagem triangular diagnóstica.",
+        classe: "badge-mid"
+      },
+      hematita: {
+        nome: "Hematita",
+        formula: "Fe₂O₃",
+        ref: "26%",
+        desc: "Reflectância moderada/baixa em microscopia ótica. Cor branca acinzentada com reflexões internas vermelhas típicas.",
+        classe: "badge-mid"
+      },
+      magnetita: {
+        nome: "Magnetita",
+        formula: "Fe₃O₄",
+        ref: "20%",
+        desc: "Óxido metálico de baixa a média reflectância, tom cinza acastanhado característico sob óleo e ar.",
+        classe: "badge-low"
+      },
+      ilmenita: {
+        nome: "Ilmenita",
+        formula: "FeTiO₃",
+        ref: "18%",
+        desc: "Reflectância baixa a moderada, anisotropia visível com pleocroísmo perceptível em tons marrons.",
+        classe: "badge-low"
+      },
+      muscovita: {
+        nome: "Muscovita (Silicatos)",
+        formula: "KAl₂(AlSi₃O₁₀)(OH)₂",
+        ref: "< 7%",
+        desc: "Mineral não-metálico transparente a translúcido. Reflectância muito baixa sob luz refletida incidente.",
+        classe: "badge-low"
+      }
+    };
+
+    function atualizarPainel() {
+      const select = document.getElementById("mineralSelect");
+      const item = minerais[select.value];
+
+      document.getElementById("mineralNome").innerText = item.nome;
+      document.getElementById("mineralFormula").innerText = item.formula;
+      document.getElementById("mineralReflectancia").innerText = item.ref;
+      document.getElementById("mineralDescricao").innerText = item.desc;
+    }
+
+    function montarTabela() {
+      const corpo = document.getElementById("tabelaGeral");
+      corpo.innerHTML = "";
+
+      for (let chave in minerais) {
+        const m = minerais[chave];
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${m.nome}</strong></td>
+          <td>${m.formula}</td>
+          <td><strong>${m.ref}</strong></td>
+          <td><span class="badge ${m.classe}">${m.ref.includes('>') || parseInt(m.ref) > 45 ? 'Muito Alta' : parseInt(m.ref) > 20 ? 'Moderada' : 'Baixa'}</span></td>
+        `;
+        corpo.appendChild(tr);
+      }
+    }
+
+    // Inicializa tabela
+    montarTabela();
+  </script>
 </body>
 </html>
